@@ -1,25 +1,37 @@
 # Junior ML Classification
 
-## What Problem Does This Solve?
-Operational risk can be framed as a basic supervised classification task.
+> A junior-friendly SLA-risk classifier using synthetic operations features.
 
-## Why It Matters For Business
-Recruiters can quickly see whether I understand features, labels, train/test split, metrics, and limitations.
+![Demo](assets/demo.svg)
+
+## Recruiter Snapshot
+
+| 30-second question | Answer |
+| --- | --- |
+| Problem | Operational risk can be framed as a supervised classification problem, but recruiters need to see the workflow and the limits clearly. |
+| My role | I built the scikit-learn pipeline, selected interpretable features, evaluated classification metrics, and documented the synthetic-data boundary. |
+| Result | The current run reports 0.862 accuracy and 0.955 ROC AUC on a 130-row synthetic test split. |
+| Portfolio signal | Shows the transition from operations analysis to ML: features, labels, preprocessing, split strategy, and evaluation. |
+| Data policy | All records are synthetic and safe for a public portfolio. |
 
 ## What I Built
-A synthetic SLA-risk classifier using scikit-learn, preprocessing, logistic regression, confusion matrix, classification report, and ROC AUC.
 
-## Tools Used
-scikit-learn, classification, metrics, feature engineering
+- Train/test split stratified by synthetic SLA-risk label.
+- ColumnTransformer with scaling and one-hot encoding.
+- LogisticRegression pipeline with confusion matrix, classification report, and ROC AUC.
 
-## Key Skills Demonstrated
-- Business problem framing.
-- Synthetic-data design for public portfolio use.
-- Reproducible Python workflow.
-- Clear documentation for recruiters and technical reviewers.
-- Privacy-safe storytelling: no employer, client, student, credential, medical, family, email, or real job-search data.
+## Evidence In This Repo
 
-## How To Run
+- `src/train_model.py` contains the modeling workflow.
+- `data/sample_synthetic_data.csv` contains 520 synthetic operations cases.
+- `assets/demo.svg` summarizes the model output.
+
+## Tools And Concepts
+
+`Python`, `pandas`, `scikit-learn`, `classification`, `LogisticRegression`, `ROC AUC`
+
+## Run Locally
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -27,15 +39,16 @@ python -m pip install -r requirements.txt
 python src/train_model.py
 ```
 
-## Screenshots Placeholder
-Add one screenshot here before publishing:
-- Suggested capture: Classification report or ROC AUC terminal output.
+## Limitations
 
-## What A Recruiter Should Notice
-Junior ML classification project predicting synthetic SLA-risk from operations features with clear metrics.
+The target is synthetic. This project demonstrates method and communication, not a validated production risk model.
 
-## What I Learned
-This project helped me practice turning an operations or AI-evaluation idea into a small, executable artifact with clean documentation, measurable output, and safe synthetic data.
+## Next Iteration
+
+- Add cross-validation and threshold tuning.
+- Add feature-importance or coefficient interpretation.
+- Add a small model card with intended and non-intended use.
 
 ## Data Privacy
-All sample data is synthetic. This repository must not include private data from Teleperformance, Foundever, UAO, clients, professors, classmates, emails, credentials, IDs, health records, family records, or real job-search records.
+
+Every record, identifier, organization, person, scenario, and result in this project is synthetic unless explicitly marked otherwise. No employer, client, university, colleague, customer, credential, private path, or sensitive personal record is used.
